@@ -6,7 +6,23 @@ class StudentsController < ApplicationController
   end
 
   def show
+    set_student
   end
+
+  def activate
+
+    student = set_student
+    if student.active
+      student.active = false
+      student.save
+    else
+      student.active = true
+      student.save
+    end
+    redirect_to :action => 'show'
+
+  end
+
 
   private
 
