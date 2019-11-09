@@ -8,6 +8,12 @@ class StudentsController < ApplicationController
   def show
   end
 
+  def activate
+    @student = set_student
+    @student.toggle_active!
+    redirect_to action: "show", id: params[:id]
+  end
+
   private
 
     def set_student
