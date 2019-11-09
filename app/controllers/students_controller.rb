@@ -11,7 +11,7 @@ class StudentsController < ApplicationController
   def activate
     @student = set_student
     @student.toggle_active!
-    redirect_to action: "show", id: params[:id]
+    redirect_to @student
   end
 
   private
